@@ -56,14 +56,14 @@ class DenoisingAutoencoder(nn.Module):
         x = x.view(-1, 1, 28, 28)  # Reshape to image dimensions
         return x
 ```
-```
+```python
 #Initialize model, loss function and optimizer
 model = DenoisingAutoencoder().to(device)
 summary(model, (1, 28, 28))
 criterion = nn.MSELoss()
 optimizer = optim.Adam(model.parameters(), lr=0.001)
 ```
-```
+```python
 def train(model, loader, criterion, optimizer, epochs=5):
     model.train()
     for epoch in range(epochs):
